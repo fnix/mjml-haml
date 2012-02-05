@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    markerb (0.1.0)
+    markerb (1.0.0)
       redcarpet (>= 2.0)
 
 GEM
