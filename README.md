@@ -1,22 +1,26 @@
 # Markerb
 
-Markerb allows you to render multipart e-mails from a single template. The template is written in Markdown, which is delivered as a text part, but also rendered and delivered as an HTML part.
+**Markerb** allows you to render multipart e-mails from a single template. The template is written in Markdown, which is delivered as a text part, but also rendered and delivered as an HTML part.
 
 The usage is quite simple. Assuming you have a notifier as below:
 
-    class Notifier < ActionMailer::Base
-      def contact(recipient)
-        @recipient = recipient
-        mail(:to => @recipient, :from => "john.doe@example.com") do |format|
-          format.text
-          format.html
-        end
-      end
+```ruby
+class Notifier < ActionMailer::Base
+  def contact(recipient)
+    @recipient = recipient
+    mail(:to => @recipient, :from => "john.doe@example.com") do |format|
+      format.text
+      format.html
     end
+  end
+end
+```
 
 If you create a template at `app/views/notifier/contact.markerb`:
 
-    Multipart templates **rocks**, right <%= @recipient %>?!
+```erb
+Multipart templates **rocks**, right <%= @recipient %>?!
+```
 
 It will generate two parts, one in text and another in html when delivered. Before we finish, here are a few things you might need to know:
 
@@ -28,6 +32,18 @@ It will generate two parts, one in text and another in html when delivered. Befo
 
 Enjoy!
 
-## Copyright and License
+## Bug reports
 
-Created by the fine folks at PlataformaTec under the MIT-LICENSE (please check MIT-LICENSE file for more info).
+If you discover any bugs, feel free to create an issue on GitHub. Please add as much information as
+possible to help us fixing the possible bug. We also encourage you to help even more by forking and
+sending us a pull request.
+
+https://github.com/plataformatec/markerb/issues
+
+## Maintainers
+
+* José Valim (https://github.com/josevalim)
+
+## License
+
+MIT License. Copyright 2012 Plataforma Tecnologia. http://blog.plataformatec.com.br
