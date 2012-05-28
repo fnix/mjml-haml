@@ -21,6 +21,18 @@ class Notifier < ActionMailer::Base
   end
 end
 
+class TestRenderer < Redcarpet::Render::HTML
+  attr_accessor :show_text
+  def initialize(render_options = {})
+    @show_text = render_options.delete(:show_text)
+    super(render_options)
+  end
+
+  def normal_text(text)
+    show_text ? "TEST #{text}" : "TEST"
+  end
+end
+
 class MarkerbTest < ActiveSupport::TestCase
 
   test "plain text should be sent as a plain text" do
@@ -45,5 +57,19 @@ class MarkerbTest < ActiveSupport::TestCase
     assert_equal "text/html", email.parts[1].mime_type
     assert_equal "<p>Dual templates <strong>rocks</strong>!</p>",
       email.parts[1].body.encoded.strip
+  end
+
+  test "with a custom renderer" do
+    Markerb.renderer = TestRenderer
+    email = Notifier.contact("you@example.com", :html)
+    assert_equal "text/html", email.mime_type
+    assert_equal "<p>TEST<strong>TEST</strong>TEST</p>", email.body.encoded.strip
+  end
+
+  test "with a custom renderer and options" do
+    Markerb.renderer = TestRenderer.new(:show_text => true)
+    email = Notifier.contact("you@example.com", :html)
+    assert_equal "text/html", email.mime_type
+    assert_equal "<p>TEST Dual templates <strong>TEST rocks</strong>TEST !</p>", email.body.encoded.strip
   end
 end
