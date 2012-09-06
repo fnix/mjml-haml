@@ -35,6 +35,16 @@ end
 
 class MarkerbTest < ActiveSupport::TestCase
 
+  setup do
+    @original_renderer = Markerb.renderer
+    @original_processing_options = Markerb.processing_options
+  end
+
+  teardown do
+    Markerb.renderer = @original_renderer
+    Markerb.processing_options = @original_processing_options
+  end
+
   test "plain text should be sent as a plain text" do
     email = Notifier.contact("you@example.com", :text)
     assert_equal "text/plain", email.mime_type
