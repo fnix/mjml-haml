@@ -12,6 +12,12 @@ class Notifier < ActionMailer::Base
     end
   end
 
+  def link(format_type)
+    mail(:to => 'foo@bar.com', :from => "john.doe@example.com") do |format|
+      format.send(format_type)
+    end
+  end
+
   def multiple_format_contact(recipient)
     @recipient = recipient
     mail(:to => @recipient, :from => "john.doe@example.com", :template => "contact") do |format|
@@ -34,6 +40,16 @@ class TestRenderer < Redcarpet::Render::HTML
 end
 
 class MarkerbTest < ActiveSupport::TestCase
+
+  setup do
+    @original_renderer = Markerb.renderer
+    @original_processing_options = Markerb.processing_options
+  end
+
+  teardown do
+    Markerb.renderer = @original_renderer
+    Markerb.processing_options = @original_processing_options
+  end
 
   test "plain text should be sent as a plain text" do
     email = Notifier.contact("you@example.com", :text)
@@ -71,5 +87,12 @@ class MarkerbTest < ActiveSupport::TestCase
     email = Notifier.contact("you@example.com", :html)
     assert_equal "text/html", email.mime_type
     assert_equal "<p>TEST Dual templates <strong>TEST rocks</strong>TEST !</p>", email.body.encoded.strip
+  end
+
+  test 'with custom markdown processing options' do
+    Markerb.processing_options = {:autolink => true}
+    email = Notifier.link(:html)
+    assert_equal "text/html", email.mime_type
+    assert_equal '<p>Hello from <a href="http://www.fcstpauli.com">http://www.fcstpauli.com</a></p>', email.body.encoded.strip
   end
 end
