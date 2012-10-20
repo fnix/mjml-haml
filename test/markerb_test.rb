@@ -18,6 +18,12 @@ class Notifier < ActionMailer::Base
     end
   end
 
+  def user(format_type)
+    mail(:to => 'foo@bar.com', :from => "john.doe@example.com") do |format|
+      format.send(format_type)
+    end
+  end
+
   def multiple_format_contact(recipient)
     @recipient = recipient
     mail(:to => @recipient, :from => "john.doe@example.com", :template => "contact") do |format|
@@ -94,5 +100,11 @@ class MarkerbTest < ActiveSupport::TestCase
     email = Notifier.link(:html)
     assert_equal "text/html", email.mime_type
     assert_equal '<p>Hello from <a href="http://www.fcstpauli.com">http://www.fcstpauli.com</a></p>', email.body.encoded.strip
+  end
+
+  test 'with partial' do
+    email = Notifier.user(:html)
+    assert_equal "text/html", email.mime_type
+    assert_equal '<p>woot! <strong>Partial</strong></p>', email.body.encoded.strip
   end
 end
