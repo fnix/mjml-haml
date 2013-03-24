@@ -46,4 +46,4 @@ https://github.com/plataformatec/markerb/issues
 
 ## License
 
-MIT License. Copyright 2012 Plataforma Tecnologia. http://blog.plataformatec.com.br
+MIT License. Copyright 2009-2013 Plataformatec. http://plataformatec.com.br
