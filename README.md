@@ -1,5 +1,7 @@
 # Markerb
 
+[![Build Status](https://api.travis-ci.org/plataformatec/markerb.png?branch=master)](http://travis-ci.org/plataformatec/markerb)
+
 **Markerb** allows you to render multipart e-mails from a single template. The template is written in Markdown, which is delivered as a text part, but also rendered and delivered as an HTML part.
 
 The usage is quite simple. Assuming you have a notifier as below:
