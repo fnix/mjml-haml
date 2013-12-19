@@ -5,3 +5,10 @@ rvm:
 gemfile:
   - Gemfile
   - gemfiles/Gemfile-rails.3.2.x
+notifications:
+  email: false
+  campfire:
+    on_success: change
+    on_failure: always
+    rooms:
+    - secure: "CDywaygYdWUAzxz08vXrUIOwRnuW/0B8A4VArgp+1z21fi1rWWCKrV6oqQW72Kbv4KkldkWLMMNBS7RY/aPehVWb/4xwQ91wF9vFTUljjn/fuwqN335ozHXFQOVWKCYVIukcRIbAsZvwgPbB/hBKIDasad+ucyangbWcvhBXreo="
