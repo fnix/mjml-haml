@@ -11,6 +11,10 @@ module Markerb
         nil # Our templates have no format
       end
 
+      def formats
+        [format]
+      end
+
       def handler
         :markerb
       end

@@ -1,3 +1,4 @@
+require "action_view"
 require "action_view/template"
 require "redcarpet"
 require "markerb/railtie"
