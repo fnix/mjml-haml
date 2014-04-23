@@ -9,6 +9,8 @@ require "action_mailer"
 require "rails/railtie"
 require "rails/generators"
 require "rails/generators/test_case"
+require "redcarpet"
+require "kramdown"
 
 $:.unshift File.expand_path("../../lib", __FILE__)
 require "markerb"

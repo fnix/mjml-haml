@@ -17,5 +17,6 @@ Gem::Specification.new do |s|
   s.test_files    = Dir['test/**/*.rb']
   s.require_paths = ['lib']
 
-  s.add_dependency 'redcarpet', '>= 2.0'
+  s.add_development_dependency 'redcarpet', '>= 2.0'
+  s.add_development_dependency 'kramdown'
 end

@@ -1,13 +1,17 @@
-require "redcarpet"
-
 module Markerb
   mattr_accessor :processing_options, :renderer
   @@processing_options = {}
-  @@renderer = Redcarpet::Render::HTML
 
   class Markdown
     def self.to_html(compiled_source)
-      Redcarpet::Markdown.new(Markerb.renderer, Markerb.processing_options).render(compiled_source)
+      if defined?(Redcarpet)
+        Markerb.renderer ||= Redcarpet::Render::HTML
+        Redcarpet::Markdown.new(Markerb.renderer, Markerb.processing_options).render(compiled_source)
+      elsif defined?(Kramdown)
+        Kramdown::Document.new(compiled_source).to_html
+      else
+        raise StandardError, "Markdown processor unavailable, please add either Redcarpet or Karmdown to your project"
+      end
     end
   end
 end
