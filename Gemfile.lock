@@ -5,7 +5,7 @@ PATH
       redcarpet (>= 2.0)
 
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     actionmailer (4.1.0)
       actionpack (= 4.1.0)
@@ -89,4 +89,4 @@ PLATFORMS
 
 DEPENDENCIES
   markerb!
-  rails (~> 4.1.0.rc1)
+  rails (~> 4.1.0)

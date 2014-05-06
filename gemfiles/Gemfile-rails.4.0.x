@@ -1,4 +1,4 @@
-source "http://rubygems.org"
+source 'https://rubygems.org'
 
 gem 'markerb', path: '..'
-gem "rails", "~> 4.0"
+gem 'rails', '~> 4.0'
