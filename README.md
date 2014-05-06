@@ -34,6 +34,22 @@ It will generate two parts, one in text and another in html when delivered. Befo
 
 Enjoy!
 
+## Installation
+
+Add it to your Gemfile, with either the `redcarpet` or `kramdown` parser:
+
+```ruby
+gem 'markerb'
+gem 'redcarpet', '>= 2.0'
+# gem 'kramdown'
+```
+
+Run the following command to install it:
+
+```console
+bundle install
+```
+
 ## Bug reports
 
 If you discover any bugs, feel free to create an issue on GitHub. Please add as much information as
