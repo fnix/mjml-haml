@@ -10,7 +10,7 @@ module Markerb
       elsif defined?(Kramdown)
         Kramdown::Document.new(compiled_source).to_html
       else
-        raise StandardError, "Markdown processor unavailable, please add either Redcarpet or Karmdown to your project"
+        raise StandardError, "Markdown processor unavailable, please add either Redcarpet or Kramdown to your project"
       end
     end
   end

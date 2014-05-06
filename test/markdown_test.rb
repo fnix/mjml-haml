@@ -1,7 +1,6 @@
 require "test_helper"
 
 class MarkdownTest < ActiveSupport::TestCase
-
   setup do
     @original_redcarpet = Redcarpet
     @original_kramdown = Kramdown
@@ -26,6 +25,6 @@ class MarkdownTest < ActiveSupport::TestCase
     Object.send(:remove_const, :Redcarpet)
     Object.send(:remove_const, :Kramdown)
 
-    assert_raise(StandardError){ Markerb::Markdown.to_html("Dual templates **rocks**!") }
+    assert_raise(StandardError) { Markerb::Markdown.to_html("Dual templates **rocks**!") }
   end
 end
