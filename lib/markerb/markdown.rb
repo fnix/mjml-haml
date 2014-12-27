@@ -8,7 +8,7 @@ module Markerb
         Markerb.renderer ||= Redcarpet::Render::HTML
         Redcarpet::Markdown.new(Markerb.renderer, Markerb.processing_options).render(compiled_source)
       elsif defined?(Kramdown)
-        Kramdown::Document.new(compiled_source).to_html
+        Kramdown::Document.new(compiled_source, Markerb.processing_options).to_html
       else
         raise StandardError, "Markdown processor unavailable, please add either Redcarpet or Kramdown to your project"
       end
