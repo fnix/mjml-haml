@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    markerb (1.0.2)
+    markerb (1.1.0)
 
 GEM
   remote: https://rubygems.org/
