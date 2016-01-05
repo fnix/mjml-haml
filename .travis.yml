@@ -4,8 +4,9 @@ before_install:
 rvm:
   - 1.9.3
   - 2.0.0
-  - 2.1
-  - 2.2
+  - 2.1.5
+  - 2.2.4
+  - 2.3.0
 gemfile:
   - Gemfile
   - gemfiles/Gemfile-rails.3.2.x
@@ -13,7 +14,9 @@ gemfile:
   - gemfiles/Gemfile-rails.4.1.x
 matrix:
   exclude:
-    - rvm: 2.2
+    - rvm: 2.2.4
+      gemfile: gemfiles/Gemfile-rails.3.2.x
+    - rvm: 2.3.0
       gemfile: gemfiles/Gemfile-rails.3.2.x
 notifications:
   email: false
