@@ -1,6 +1,6 @@
 require "rails/generators/erb/mailer/mailer_generator"
 
-module Markerb
+module Mjml
   module Generators
     class MailerGenerator < Erb::Generators::MailerGenerator
       source_root File.expand_path("../templates", __FILE__)
@@ -16,7 +16,7 @@ module Markerb
       end
 
       def handler
-        :markerb
+        :mjml
       end
     end
   end

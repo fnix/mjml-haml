@@ -1,34 +1,16 @@
-# Markerb
+# MJML-Rails
 
-[![Build Status](https://api.travis-ci.org/plataformatec/markerb.png?branch=master)](http://travis-ci.org/plataformatec/markerb)
+[![Build Status](https://api.travis-ci.org/sighmon/mjml-rails.png?branch=master)](http://travis-ci.org/sighmon/mjml-rails)
 
-**Markerb** allows you to render multipart e-mails from a single template. The template is written in Markdown, which is delivered as a text part, but also rendered and delivered as an HTML part.
+**MJML-Rails** allows you to render HTML e-mails from an [MJML](https://mjml.io) template.
 
-The usage is quite simple. Assuming you have a notifier as below:
-
-```ruby
-class Notifier < ActionMailer::Base
-  def contact(recipient)
-    @recipient = recipient
-    mail(:to => @recipient, :from => "john.doe@example.com") do |format|
-      format.text
-      format.html
-    end
-  end
-end
-```
-
-If you create a template at `app/views/notifier/contact.markerb`:
+If you create a template at `app/views/notifier/contact.mjml`:
 
 ```erb
-Multipart templates **rocks**, right <%= @recipient %>?!
+MJML templates **rock**, right <%= @recipient %>?!
 ```
 
-It will generate two parts, one in text and another in html when delivered. Before we finish, here are a few things you might need to know:
-
-* The `contact.markerb` template should not have a format in its name. Adding a format would make it unavailable to be rendered in different formats;
-
-* The order of the parts matter. It is important for e-mail clients that you call `format.text` before you call `format.html`;
+It will generate the responsive HTML template for you.
 
 * Notice you can normally use ERb inside the template.
 
@@ -36,12 +18,10 @@ Enjoy!
 
 ## Installation
 
-Add it to your Gemfile, with either the `redcarpet` or `kramdown` parser:
+Add it to your Gemfile.
 
 ```ruby
-gem 'markerb'
-gem 'redcarpet', '>= 2.0'
-# gem 'kramdown'
+gem 'mjml-rails'
 ```
 
 Run the following command to install it:
@@ -50,18 +30,24 @@ Run the following command to install it:
 bundle install
 ```
 
+Install the MJML parser
+
+```console
+npm install -g mjml
+```
+
 ## Bug reports
 
-If you discover any bugs, feel free to create an issue on GitHub. Please add as much information as
-possible to help us fixing the possible bug. We also encourage you to help even more by forking and
-sending us a pull request.
+If you discover any bugs, feel free to create an issue on GitHub. Please add as much information as possible to help us fixing the possible bug. We also encourage you to help even more by forking and sending us a pull request.
 
-https://github.com/plataformatec/markerb/issues
+[github.com/sighmon/mjml-rails/issues](https://github.com/sighmon/mjml-rails/issues)
 
 ## Maintainers
 
-* José Valim (https://github.com/josevalim)
+* Simon Loffler [github.com/sighmon](https://github.com/sighmon)
 
 ## License
 
-MIT License. Copyright 2011-2015 Plataformatec. http://plataformatec.com.br
+MIT License. Copyright 2016 Simon Loffler. [sighmon.com](http://sighmon.com)
+
+Lovingly modified from [github.com/plataformatec/markerb](https://github.com/plataformatec/markerb)

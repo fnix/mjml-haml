@@ -45,16 +45,16 @@ class TestRenderer < Redcarpet::Render::HTML
   end
 end
 
-class MarkerbTest < ActiveSupport::TestCase
+class MjmlTest < ActiveSupport::TestCase
 
   setup do
-    @original_renderer = Markerb.renderer
-    @original_processing_options = Markerb.processing_options
+    @original_renderer = Mjml.renderer
+    @original_processing_options = Mjml.processing_options
   end
 
   teardown do
-    Markerb.renderer = @original_renderer
-    Markerb.processing_options = @original_processing_options
+    Mjml.renderer = @original_renderer
+    Mjml.processing_options = @original_processing_options
   end
 
   test "plain text should be sent as a plain text" do
@@ -82,21 +82,21 @@ class MarkerbTest < ActiveSupport::TestCase
   end
 
   test "with a custom renderer" do
-    Markerb.renderer = TestRenderer
+    Mjml.renderer = TestRenderer
     email = Notifier.contact("you@example.com", :html)
     assert_equal "text/html", email.mime_type
     assert_equal "<p>TEST<strong>TEST</strong>TEST</p>", email.body.encoded.strip
   end
 
   test "with a custom renderer and options" do
-    Markerb.renderer = TestRenderer.new(:show_text => true)
+    Mjml.renderer = TestRenderer.new(:show_text => true)
     email = Notifier.contact("you@example.com", :html)
     assert_equal "text/html", email.mime_type
     assert_equal "<p>TEST Dual templates <strong>TEST rocks</strong>TEST !</p>", email.body.encoded.strip
   end
 
   test 'with custom markdown processing options' do
-    Markerb.processing_options = {:autolink => true}
+    Mjml.processing_options = {:autolink => true}
     email = Notifier.link(:html)
     assert_equal "text/html", email.mime_type
     assert_equal '<p>Hello from <a href="http://www.fcstpauli.com">http://www.fcstpauli.com</a></p>', email.body.encoded.strip
