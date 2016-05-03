@@ -11,7 +11,7 @@ require "rails/generators"
 require "rails/generators/test_case"
 
 $:.unshift File.expand_path("../../lib", __FILE__)
-require "markerb"
+require "mjml"
 
 ActiveSupport::TestCase.test_order = :sorted if ActiveSupport::TestCase.respond_to? :test_order=
 
