@@ -1,7 +1,7 @@
 require "action_view"
 require "action_view/template"
-require "markerb/markdown"
-require "markerb/railtie"
+require "mjml/mjmltemplate"
+require "mjml/railtie"
 
 module Mjml
   class Handler
@@ -12,7 +12,7 @@ module Mjml
     def call(template)
       compiled_source = erb_handler.call(template)
       if template.formats.include?(:html)
-        "Mjml::MjmlTemplate.to_html(begin;#{compiled_source};end).html_safe"
+        "Mjml::Mjmltemplate.to_html(begin;#{compiled_source};end).html_safe"
       else
         compiled_source
       end
