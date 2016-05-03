@@ -66,7 +66,8 @@ class MjmlTest < ActiveSupport::TestCase
   test 'with partial' do
     email = Notifier.user(:html)
     assert_equal "text/html", email.mime_type
-    assert_match '*Hello Partial*', email.body.encoded.strip
+    assert_match /Partial/, email.body.encoded.strip
+    assert_no_match /mj-text/, email.body.encoded.strip
   end
 
   # test "plain text should be sent as a plain text" do
