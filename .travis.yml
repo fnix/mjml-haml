@@ -20,3 +20,5 @@ matrix:
       gemfile: gemfiles/Gemfile-rails.3.2.x
 notifications:
   email: true
+before_script:
+  - npm install mjml@1.3.4
