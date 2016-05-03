@@ -28,7 +28,7 @@ Enjoy!
 Add it to your Gemfile.
 
 ```ruby
-gem 'mjml-rails'
+gem 'mjml-rails', git: 'https://github.com/sighmon/mjml-rails.git'
 ```
 
 Run the following command to install it:
