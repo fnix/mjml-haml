@@ -7,7 +7,14 @@
 If you create a template at `app/views/notifier/contact.mjml`:
 
 ```erb
-MJML templates **rock**, right <%= @recipient %>?!
+<mj-body>
+  <mj-section>
+    <mj-column>
+      <mj-text>Hello World</mj-text>
+      <%= render :partial => 'user_info', :formats => [:mjml] %>
+    </mj-column>
+  </mj-section>
+</mj-body>
 ```
 
 It will generate the responsive HTML template for you.
