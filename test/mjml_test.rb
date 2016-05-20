@@ -33,17 +33,17 @@ class Notifier < ActionMailer::Base
   end
 end
 
-class TestRenderer < ActionView::PartialRenderer
-  attr_accessor :show_text
-  def initialize(render_options = {})
-    @show_text = render_options.delete(:show_text)
-    super(render_options)
-  end
+# class TestRenderer < ActionView::PartialRenderer
+#   attr_accessor :show_text
+#   def initialize(render_options = {})
+#     @show_text = render_options.delete(:show_text)
+#     super(render_options)
+#   end
 
-  def normal_text(text)
-    show_text ? "TEST #{text}" : "TEST"
-  end
-end
+#   def normal_text(text)
+#     show_text ? "TEST #{text}" : "TEST"
+#   end
+# end
 
 class MjmlTest < ActiveSupport::TestCase
 
@@ -60,7 +60,8 @@ class MjmlTest < ActiveSupport::TestCase
   test "html should be sent as html" do
     email = Notifier.contact("you@example.com", :html)
     assert_equal "text/html", email.mime_type
-    assert_not_equal "<mj-body></mj-body>", email.body.encoded.strip
+    assert_no_match(/<mj-body>/, email.body.encoded.strip)
+    assert_match(/<body/, email.body.encoded.strip)
   end
 
   test 'with partial' do
