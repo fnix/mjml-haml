@@ -11,7 +11,7 @@ If you create a template at `app/views/notifier/contact.mjml`:
   <mj-section>
     <mj-column>
       <mj-text>Hello World</mj-text>
-      <%= render :partial => 'user_info', :formats => [:mjml] %>
+      <%= render :partial => 'user_info', :formats => [:html] %>
     </mj-column>
   </mj-section>
 </mj-body>

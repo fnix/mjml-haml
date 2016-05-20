@@ -11,7 +11,7 @@ module Mjml
 
     def call(template)
       compiled_source = erb_handler.call(template)
-      if template.formats.include?(:html)
+      if template.formats.include?(:mjml)
         "Mjml::Mjmltemplate.to_html(begin;#{compiled_source};end).html_safe"
       else
         compiled_source
@@ -19,5 +19,3 @@ module Mjml
     end
   end
 end
-
-ActionView::Template.register_template_handler :mjml, Mjml::Handler.new
