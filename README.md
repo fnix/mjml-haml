@@ -28,7 +28,7 @@ Enjoy!
 Add it to your Gemfile.
 
 ```ruby
-gem 'mjml-rails', git: 'https://github.com/sighmon/mjml-rails.git'
+gem 'mjml-rails', git: 'https://github.com/sighmon/mjml-rails.git', require: 'mjml'
 ```
 
 Run the following command to install it:
@@ -40,7 +40,7 @@ bundle install
 Install the MJML parser
 
 ```console
-npm install -g mjml
+npm install -g mjml@1.3.4
 ```
 
 ## Bug reports
