@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.summary     = 'MJML + ERb templates'
   s.email       = 'sighmon@sighmon.com'
-  s.homepage    = 'http://github.com/sighmon/mjml-rails'
+  s.homepage    = 'https://github.com/sighmon/mjml-rails'
   s.description = 'Render MJML + ERb template views in Rails'
   s.authors     = ['Simon Loffler']
   s.license     = 'MIT'
