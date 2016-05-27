@@ -1,8 +1,12 @@
-<mj-body>
-  <mj-section>
-    <mj-column>
-      <mj-text>Hello World</mj-text>
-      <%= render :partial => 'user_info', :formats => [:html] %>
-    </mj-column>
-  </mj-section>
-</mj-body>
+<mjml>
+  <mj-body>
+    <mj-container>
+      <mj-section>
+        <mj-column>
+          <mj-text>Hello World</mj-text>
+          <%= render :partial => 'user_info', :formats => [:html] %>
+        </mj-column>
+      </mj-section>
+    </mj-container>
+  </mj-body>
+</mjml>

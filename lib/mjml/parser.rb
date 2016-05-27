@@ -26,7 +26,9 @@ module Mjml
     #
     # @return [String] The result as string
     def run
-      `#{mjml_bin} -r #{in_tmp_file} -o #{out_tmp_file}`
+      command = "#{mjml_bin} -r #{in_tmp_file} -o #{out_tmp_file}"
+      # puts command
+      `#{command}`
       file = File.open(out_tmp_file, 'r')
       str  = file.read
       file.close
@@ -56,7 +58,7 @@ module Mjml
       # @return [String]
       def out_tmp_file
 
-        @_out_tmp_file ||= "#{tmp_dir}/out_#{(0...8).map { (65 + rand(26)).chr }.join}"
+        @_out_tmp_file ||= "#{tmp_dir}/out_#{(0...8).map { (65 + rand(26)).chr }.join}.html"
       end
 
       # Get parser tpm file to get result
@@ -64,7 +66,9 @@ module Mjml
       # @return [String]
       def in_tmp_file
 
-        @_in_tmp_file ||= "#{tmp_dir}/in_#{(0...8).map { (65 + rand(26)).chr }.join}"
+        @_in_tmp_file ||= "#{tmp_dir}/in_#{(0...8).map { (65 + rand(26)).chr }.join}.mjml"
+        # puts @_in_tmp_file
+        return @_in_tmp_file
       end
 
       # Get mjml bin path

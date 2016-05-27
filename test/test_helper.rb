@@ -10,6 +10,9 @@ require "rails/railtie"
 require "rails/generators"
 require "rails/generators/test_case"
 
+# require "minitest/reporters"
+# Minitest::Reporters.use!
+
 $:.unshift File.expand_path("../../lib", __FILE__)
 require "mjml"
 Mjml::Railtie.run_initializers

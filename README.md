@@ -7,14 +7,18 @@
 An example template might look like `app/views/user_mailer/email.mjml`:
 
 ```erb
-<mj-body>
-  <mj-section>
-    <mj-column>
-      <mj-text>Hello World</mj-text>
-      <%= render :partial => 'info', :formats => [:html] %>
-    </mj-column>
-  </mj-section>
-</mj-body>
+<mjml>
+  <mj-body>
+    <mj-container>
+      <mj-section>
+        <mj-column>
+          <mj-text>Hello World</mj-text>
+          <%= render :partial => 'info', :formats => [:html] %>
+        </mj-column>
+      </mj-section>
+    </mj-container>
+  </mj-body>
+</mjml>
 ```
 
 And the partial `_info.mjml`:
@@ -42,11 +46,8 @@ bundle install
 Install the MJML parser
 
 ```console
-npm install -g mjml@1.3.4
+npm install -g mjml@2.1.1
 ```
-
-* Note that this gem only supports MJML 1.x at the moment.
-* If you'd like to help me upgrade it to support MJML 2.x that'd be great!
 
 ## Bug reports
 

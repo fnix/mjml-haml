@@ -16,5 +16,6 @@ Gem::Specification.new do |s|
   s.files         = Dir['MIT-LICENSE', 'README.md', 'lib/**/*']
   s.test_files    = Dir['test/**/*.rb']
   s.require_paths = ['lib']
+  s.post_install_message = "Don't forget to install MJML e.g. \n$ npm install -g mjml"
 
 end

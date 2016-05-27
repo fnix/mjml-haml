@@ -24,6 +24,12 @@ class Notifier < ActionMailer::Base
     end
   end
 
+  def no_partial(format_type)
+    mail(:to => 'foo@bar.com', :from => "john.doe@example.com") do |format|
+      format.send(format_type)
+    end
+  end
+
   def multiple_format_contact(recipient)
     @recipient = recipient
     mail(:to => @recipient, :from => "john.doe@example.com", :template => "contact") do |format|
@@ -69,6 +75,13 @@ class MjmlTest < ActiveSupport::TestCase
     email = Notifier.user(:mjml)
     assert_equal "text/html", email.mime_type
     assert_match(/Hello Partial/, email.body.encoded.strip)
+    assert_no_match(/mj-text/, email.body.encoded.strip)
+  end
+
+  test 'without a partial' do
+    email = Notifier.no_partial(:mjml)
+    assert_equal "text/html", email.mime_type
+    assert_match(/Hello World/, email.body.encoded.strip)
     assert_no_match(/mj-text/, email.body.encoded.strip)
   end
 

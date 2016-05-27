@@ -1,3 +1,4 @@
 module Mjml
-  VERSION = "1.0.0"
+	# Version number matches MJML.io version
+  VERSION = "2.1.1"
 end
