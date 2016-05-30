@@ -13,6 +13,9 @@ Gem::Specification.new do |s|
   s.authors     = ['Simon Loffler']
   s.license     = 'MIT'
 
+  s.cert_chain  = ['certs/sighmon.pem']
+  s.signing_key = File.expand_path("~/.ssh/gem-private_key.pem") if $0 =~ /gem\z/
+
   s.files         = Dir['MIT-LICENSE', 'README.md', 'lib/**/*']
   s.test_files    = Dir['test/**/*.rb']
   s.require_paths = ['lib']
