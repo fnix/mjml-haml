@@ -4,9 +4,10 @@
 
 **MJML-Rails** allows you to render HTML e-mails from an [MJML](https://mjml.io) template.
 
-An example template might look like `app/views/user_mailer/email.mjml`:
+An example template might look like:
 
 ```erb
+# ./app/views/user_mailer/email.mjml
 <mjml>
   <mj-body>
     <mj-container>
@@ -28,6 +29,20 @@ And the partial `_info.mjml`:
 ```
 
 * Notice you can use ERb and partials inside the template.
+
+Your `user_mailer.rb` might look like this::
+
+```ruby
+# ./app/mailers/user_mailer.rb
+class UserMailer < ActionMailer::Base
+  def user_signup_confirmation()
+    mail(to: 'test@example.com', subject: 'test') do |format|
+      format.text
+      format.mjml
+    end
+  end
+end
+```
 
 ## Installation
 
