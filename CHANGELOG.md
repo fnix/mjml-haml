@@ -1,3 +1,7 @@
+## 2.1.4
+
+* Updated to MJML v2.1.4
+
 ## 2.1.1
 
 * Supports new tags in MJML v2.1.1

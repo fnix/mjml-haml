@@ -62,7 +62,7 @@ bundle install
 Install the MJML parser
 
 ```console
-npm install -g mjml@2.1.1
+npm install -g mjml@2.1.4
 ```
 
 ## Deploying with Heroku
@@ -94,7 +94,7 @@ Next you'll need to setup a `package.json` file in the root, something like this
     "test": "test"
   },
   "dependencies": {
-    "mjml": "2.1.1"
+    "mjml": "2.1.4"
   },
   "repository": {
     "type": "git",
