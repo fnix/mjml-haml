@@ -65,6 +65,55 @@ Install the MJML parser
 npm install -g mjml@2.1.1
 ```
 
+## Deploying with Heroku
+
+To deploy with [Heroku](https://heroku.com) you'll need to setup [multiple buildpacks](https://devcenter.heroku.com/articles/using-multiple-buildpacks-for-an-app) so that Heroku first builds Node for MJML and then the Ruby environment for your app.
+
+Once you've installed the [Heroku Toolbelt](https://toolbelt.heroku.com/) you can setup the buildpacks from the commandline:
+
+`$ heroku buildpacks:set heroku/ruby`
+
+And then add the Node buildpack to index 1 so it's run first:
+
+`$ heroku buildpacks:add --index 1 heroku/nodejs`
+
+Check that's all setup by running:
+
+`$ heroku buildpacks`
+
+Next you'll need to setup a `package.json` file in the root, something like this:
+
+```json
+{
+  "name": "your-site",
+  "version": "1.0.0",
+  "description": "Now with MJML email templates!",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "dependencies": {
+    "mjml": "2.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-repo/your-site.git"
+  },
+  "keywords": [
+    "mailer"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sighmon/mjml-rails/issues"
+  },
+  "homepage": "https://github.com/sighmon/mjml-rails"
+}
+```
+
+Then `$ git push heroku master` and it should Just WorkTM.
+
 ## Bug reports
 
 If you discover any bugs, feel free to create an issue on GitHub. Please add as much information as possible to help us fixing the possible bug. We also encourage you to help even more by forking and sending us a pull request.
