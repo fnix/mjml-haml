@@ -7,7 +7,7 @@
 An example template might look like:
 
 ```erb
-# ./app/views/user_mailer/email.mjml
+<!-- ./app/views/user_mailer/email.mjml -->
 <mjml>
   <mj-body>
     <mj-container>
@@ -25,6 +25,7 @@ An example template might look like:
 And the partial `_info.mjml`:
 
 ```erb
+<!-- ./app/views/user_mailer/_info.mjml -->
 <mj-text>This is <%= @user.username %></mj-text>
 ```
 
