@@ -65,6 +65,10 @@ Install the MJML parser
 npm install -g mjml@2.1.4
 ```
 
+### How to guides
+
+[Hugo Giraudel](https://twitter.com/hugogiraudel) wrote a post on [using MJML in Rails](http://dev.edenspiekermann.com/2016/06/02/using-mjml-in-rails/).
+
 ## Deploying with Heroku
 
 To deploy with [Heroku](https://heroku.com) you'll need to setup [multiple buildpacks](https://devcenter.heroku.com/articles/using-multiple-buildpacks-for-an-app) so that Heroku first builds Node for MJML and then the Ruby environment for your app.
