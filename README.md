@@ -50,7 +50,7 @@ end
 Add it to your Gemfile.
 
 ```ruby
-gem 'mjml-rails', git: 'https://github.com/sighmon/mjml-rails.git', require: 'mjml'
+gem 'mjml-rails'
 ```
 
 Run the following command to install it:

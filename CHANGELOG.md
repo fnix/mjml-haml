@@ -1,3 +1,7 @@
+## 2.1.4.1
+
+* Removing require: 'mjml' from the Gemfile install line.
+
 ## 2.1.4
 
 * Updated to MJML v2.1.4
