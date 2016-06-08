@@ -59,7 +59,7 @@ Run the following command to install it:
 bundle install
 ```
 
-Install the MJML parser
+Install the MJML parser (optional -g to install it globally):
 
 ```console
 npm install -g mjml@2.1.4
