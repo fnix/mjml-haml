@@ -4,8 +4,8 @@ module Mjml
     config.app_generators.mailer :template_engine => :mjml
 
     initializer "mjml-rails.register_template_handler" do
-    	ActionView::Template.register_template_handler :mjml, Mjml::Handler.new
-    	Mime::Type.register "text/html", :mjml
+      ActionView::Template.register_template_handler :mjml, Mjml::Handler.new
+      Mime::Type.register "text/html", :mjml
     end
   end
 end

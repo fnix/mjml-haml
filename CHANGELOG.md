@@ -1,3 +1,8 @@
+## 2.2.0
+
+* Updated to work with MJML v2.x
+* Performing executable checks and version checks at initialize time.
+
 ## 2.1.4.1
 
 * Removing require: 'mjml' from the Gemfile install line.

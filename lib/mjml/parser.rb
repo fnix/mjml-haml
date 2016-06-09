@@ -75,7 +75,7 @@ module Mjml
       #
       # @return [String]
       def mjml_bin
-        `/usr/bin/which mjml`.chomp
+        Mjml::BIN
       end
   end
 end

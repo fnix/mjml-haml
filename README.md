@@ -62,7 +62,7 @@ bundle install
 Install the MJML parser (optional -g to install it globally):
 
 ```console
-npm install -g mjml@2.1.4
+npm install -g mjml@^2.0
 ```
 
 ### How to guides
@@ -98,7 +98,7 @@ Next you'll need to setup a `package.json` file in the root, something like this
     "test": "test"
   },
   "dependencies": {
-    "mjml": "2.1.4"
+    "mjml": "^2.0"
   },
   "repository": {
     "type": "git",
