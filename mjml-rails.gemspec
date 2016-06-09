@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email       = 'sighmon@sighmon.com'
   s.homepage    = 'https://github.com/sighmon/mjml-rails'
   s.description = 'Render MJML + ERb template views in Rails'
-  s.authors     = ['Simon Loffler']
+  s.authors     = ['Simon Loffler', 'Steven Pickles']
   s.license     = 'MIT'
 
   s.cert_chain  = ['certs/sighmon.pem']
