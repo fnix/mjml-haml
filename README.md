@@ -80,10 +80,10 @@ class DeviseMailer < Devise::Mailer
     @resource = record
     # Custom logic to send the email with MJML
     mail(
-      :template_path => 'devise/mailer',
-      :from => "some@email.com", 
-      :to => record.email, 
-      :subject => "Custom subject"
+      template_path: 'devise/mailer',
+      from: "some@email.com", 
+      to: record.email, 
+      subject: "Custom subject"
     ) do |format|
       format.mjml
       format.text
