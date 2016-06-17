@@ -69,6 +69,35 @@ npm install -g mjml@^2.0
 
 [Hugo Giraudel](https://twitter.com/hugogiraudel) wrote a post on [using MJML in Rails](http://dev.edenspiekermann.com/2016/06/02/using-mjml-in-rails/).
 
+## Sending Devise user emails
+
+If you use [Devise](https://github.com/plataformatec/devise) for user authentication and want to send user emails with MJML templates, here's how to override the [devise mailer](https://github.com/plataformatec/devise/blob/master/app/mailers/devise/mailer.rb):
+```ruby
+# app/mailers/devise_mailer.rb
+class DeviseMailer < Devise::Mailer
+  def reset_password_instructions(record, token, opts={})
+    @token = token
+    @resource = record
+    # Custom logic to send the email with MJML
+    mail(
+      :template_path => 'devise/mailer',
+      :from => "some@email.com", 
+      :to => record.email, 
+      :subject => "Custom subject"
+    ) do |format|
+      format.mjml
+      format.text
+    end
+  end
+end
+```
+
+Now tell devise to user your mailer in `config/initializers/devise.rb` by setting `config.mailer = 'DeviseMailer'` or whatever name you called yours.
+
+And then your MJML template goes here: `app/views/devise/mailer/reset_password_instructions.mjml`
+
+Devise also have [more instructions](https://github.com/plataformatec/devise/wiki/How-To:-Use-custom-mailer) if you need them.
+
 ## Deploying with Heroku
 
 To deploy with [Heroku](https://heroku.com) you'll need to setup [multiple buildpacks](https://devcenter.heroku.com/articles/using-multiple-buildpacks-for-an-app) so that Heroku first builds Node for MJML and then the Ruby environment for your app.
