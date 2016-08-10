@@ -29,12 +29,16 @@ module Mjml
   BIN = discover_mjml_bin
 
   class Handler
-    def erb_handler
-      @erb_handler ||= ActionView::Template.registered_template_handler(:erb)
+    def template_handler
+      @template_handler ||= if Rails.application.config.generators.options[:rails][:template_engine] == :haml
+        ActionView::Template.registered_template_handler(:haml)
+      else
+        ActionView::Template.registered_template_handler(:erb)
+      end
     end
 
     def call(template)
-      compiled_source = erb_handler.call(template)
+      compiled_source = template_handler.call(template)
       if template.formats.include?(:mjml)
         "Mjml::Mjmltemplate.to_html(begin;#{compiled_source};end).html_safe"
       else
