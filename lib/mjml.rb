@@ -1,5 +1,6 @@
 require "action_view"
-require "action_view/template"
+require "haml"
+require "haml/template/plugin"
 require "mjml/mjmltemplate"
 require "mjml/railtie"
 require "rubygems"
@@ -29,12 +30,12 @@ module Mjml
   BIN = discover_mjml_bin
 
   class Handler
-    def erb_handler
-      @erb_handler ||= ActionView::Template.registered_template_handler(:erb)
+    def haml_handler
+      @haml_handler ||= ActionView::Template.registered_template_handler(:haml)
     end
 
     def call(template)
-      compiled_source = erb_handler.call(template)
+      compiled_source = haml_handler.call(template)
       if template.formats.include?(:mjml)
         "Mjml::Mjmltemplate.to_html(begin;#{compiled_source};end).html_safe"
       else

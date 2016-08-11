@@ -1,12 +1,7 @@
-<mjml>
-  <mj-body>
-    <mj-container>
-      <mj-section>
-        <mj-column>
-          <mj-text>Hello World</mj-text>
-          <%= render :partial => 'link', :formats => [:html] %>
-        </mj-column>
-      </mj-section>
-    </mj-container>
-  </mj-body>
-</mjml>
+%mjml
+  %mj-body
+    %mj-container
+      %mj-section
+        %mj-column
+          %mj-text Hello World
+          = render :partial => 'link', :formats => [:html]

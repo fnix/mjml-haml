@@ -68,7 +68,7 @@ class MjmlTest < ActiveSupport::TestCase
     assert_equal "text/html", email.mime_type
     assert_no_match(/<mj-body>/, email.body.encoded.strip)
     assert_match(/<body/, email.body.encoded.strip)
-    assert_match('<p>Hello from <a href="http://www.sighmon.com">sighmon.com</a></p>', email.body.encoded.strip)
+    assert_match('<p>Hello from <a href="https://github.com/fnix/mjml-haml">haml-rails</a></p>', email.body.encoded.strip)
   end
 
   test 'with partial' do
