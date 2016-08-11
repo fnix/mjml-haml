@@ -26,11 +26,20 @@ module Mjml
     raise RuntimeError, "Couldn't find the MJML binary.. have you run $ npm install mjml?"
   end
 
+  def self.discover_template_engine
+    if Rails.respond_to?(:application)
+      Rails.application.config.generators.options[:rails][:template_engine]
+    else
+      :erb
+    end
+  end
+
   BIN = discover_mjml_bin
+  TEMPLATE_ENGINE = discover_template_engine
 
   class Handler
     def template_handler
-      @template_handler ||= if Rails.application.config.generators.options[:rails][:template_engine] == :haml
+      @template_handler ||= if Mjml::TEMPLATE_ENGINE == :haml
         ActionView::Template.registered_template_handler(:haml)
       else
         ActionView::Template.registered_template_handler(:erb)

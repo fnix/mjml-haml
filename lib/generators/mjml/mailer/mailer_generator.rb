@@ -1,9 +1,9 @@
 require "rails/generators/erb/mailer/mailer_generator"
-require "generators/haml/mailer/mailer_generator" if Rails.application.config.generators.options[:rails][:template_engine] == :haml
+require "generators/haml/mailer/mailer_generator" if Mjml::TEMPLATE_ENGINE == :haml
 
 module Mjml
   module Generators
-    if Rails.application.config.generators.options[:rails][:template_engine] == :haml
+    if Mjml::TEMPLATE_ENGINE == :haml
       PARENT_GENERATOR = Haml::Generators::MailerGenerator
       TEMPLATES_FOLDER = '../templates_haml'
     else
