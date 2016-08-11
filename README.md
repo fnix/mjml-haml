@@ -1,6 +1,6 @@
 # MJML-Haml
 
-[![Build Status](https://api.travis-ci.org/cerdiogenes/mjml-haml.svg?branch=master)](http://travis-ci.org/cerdiogenes/mjml-haml) [![Gem Version](https://badge.fury.io/rb/mjml-rails.svg)](https://badge.fury.io/rb/mjml-rails)
+[![Build Status](https://api.travis-ci.org/fnix/mjml-haml.svg?branch=master)](http://travis-ci.org/fnix/mjml-haml) [![Gem Version](https://badge.fury.io/rb/mjml-rails.svg)](https://badge.fury.io/rb/mjml-rails)
 
 **MJML-Haml** allows you to render HTML e-mails from an [MJML](https://mjml.io) template.
 
@@ -130,9 +130,9 @@ Next you'll need to setup a `package.json` file in the root, something like this
   "author": "Your Name",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cerdiogenes/mjml-haml/issues"
+    "url": "https://github.com/fnix/mjml-haml/issues"
   },
-  "homepage": "https://github.com/cerdiogenes/mjml-haml"
+  "homepage": "https://github.com/fnix/mjml-haml"
 }
 ```
 
@@ -142,7 +142,7 @@ Then `$ git push heroku master` and it should Just WorkTM.
 
 If you discover any bugs, feel free to create an issue on GitHub. Please add as much information as possible to help us fixing the possible bug. We also encourage you to help even more by forking and sending us a pull request.
 
-[github.com/cerdiogenes/mjml-haml/issues](https://github.com/cerdiogenes/mjml-haml/issues)
+[github.com/fnix/mjml-haml/issues](https://github.com/fnix/mjml-haml/issues)
 
 ## Maintainers
 
