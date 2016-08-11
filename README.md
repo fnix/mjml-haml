@@ -152,4 +152,4 @@ If you discover any bugs, feel free to create an issue on GitHub. Please add as 
 
 MIT License. Copyright 2016 Kadu Diógenes.
 
-Lovingly built on [github.com/sighmon/haml-rails](https://github.com/sighmon/haml-rails)
+Lovingly built on [github.com/sighmon/mjml-rails](https://github.com/sighmon/mjml-rails)
