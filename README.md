@@ -146,8 +146,7 @@ If you discover any bugs, feel free to create an issue on GitHub. Please add as 
 
 ## Maintainers
 
-* Simon Loffler [github.com/sighmon](https://github.com/sighmon)
-* Steven Pickles [github.com/thatpixguy](https://github.com/thatpixguy)
+* Kadu Diógenes [github.com/cerdiogenes](https://github.com/cerdiogenes)
 
 ## License
 
