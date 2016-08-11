@@ -1,35 +1,30 @@
-# MJML-Rails
+# MJML-Haml
 
-[![Build Status](https://api.travis-ci.org/sighmon/mjml-rails.svg?branch=master)](http://travis-ci.org/sighmon/mjml-rails) [![Gem Version](https://badge.fury.io/rb/mjml-rails.svg)](https://badge.fury.io/rb/mjml-rails)
+[![Build Status](https://api.travis-ci.org/cerdiogenes/mjml-haml.svg?branch=master)](http://travis-ci.org/cerdiogenes/mjml-haml) [![Gem Version](https://badge.fury.io/rb/mjml-rails.svg)](https://badge.fury.io/rb/mjml-rails)
 
-**MJML-Rails** allows you to render HTML e-mails from an [MJML](https://mjml.io) template.
+**MJML-Haml** allows you to render HTML e-mails from an [MJML](https://mjml.io) template.
 
 An example template might look like:
 
-```erb
-<!-- ./app/views/user_mailer/email.mjml -->
-<mjml>
-  <mj-body>
-    <mj-container>
-      <mj-section>
-        <mj-column>
-          <mj-text>Hello World</mj-text>
-          <%= render :partial => 'info', :formats => [:html] %>
-        </mj-column>
-      </mj-section>
-    </mj-container>
-  </mj-body>
-</mjml>
+```haml
+/ ./app/views/user_mailer/email.mjml
+%mjml
+  %mj-body
+    %mj-container
+      %mj-section
+        %mj-column
+          %mj-text
+          = render :partial => 'info', :formats => [:html]
 ```
 
 And the partial `_info.mjml`:
 
-```erb
-<!-- ./app/views/user_mailer/_info.mjml -->
-<mj-text>This is <%= @user.username %></mj-text>
+```haml
+/ ./app/views/user_mailer/_info.mjml
+%mj-text= "This is #{@user.username}"
 ```
 
-* Notice you can use ERb and partials inside the template.
+* Notice you can use Haml and partials inside the template.
 
 Your `user_mailer.rb` might look like this::
 
@@ -50,7 +45,7 @@ end
 Add it to your Gemfile.
 
 ```ruby
-gem 'mjml-rails'
+gem 'mjml-haml'
 ```
 
 Run the following command to install it:
@@ -64,10 +59,6 @@ Install the MJML parser (optional -g to install it globally):
 ```console
 npm install -g mjml@^2.0
 ```
-
-### How to guides
-
-[Hugo Giraudel](https://twitter.com/hugogiraudel) wrote a post on [using MJML in Rails](http://dev.edenspiekermann.com/2016/06/02/using-mjml-in-rails/).
 
 ## Sending Devise user emails
 
@@ -139,9 +130,9 @@ Next you'll need to setup a `package.json` file in the root, something like this
   "author": "Your Name",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sighmon/mjml-rails/issues"
+    "url": "https://github.com/cerdiogenes/mjml-haml/issues"
   },
-  "homepage": "https://github.com/sighmon/mjml-rails"
+  "homepage": "https://github.com/cerdiogenes/mjml-haml"
 }
 ```
 
@@ -151,7 +142,7 @@ Then `$ git push heroku master` and it should Just WorkTM.
 
 If you discover any bugs, feel free to create an issue on GitHub. Please add as much information as possible to help us fixing the possible bug. We also encourage you to help even more by forking and sending us a pull request.
 
-[github.com/sighmon/mjml-rails/issues](https://github.com/sighmon/mjml-rails/issues)
+[github.com/cerdiogenes/mjml-haml/issues](https://github.com/cerdiogenes/mjml-haml/issues)
 
 ## Maintainers
 
@@ -160,6 +151,6 @@ If you discover any bugs, feel free to create an issue on GitHub. Please add as 
 
 ## License
 
-MIT License. Copyright 2016 Simon Loffler. [sighmon.com](http://sighmon.com)
+MIT License. Copyright 2016 Kadu Diógenes.
 
-Lovingly built on [github.com/plataformatec/markerb](https://github.com/plataformatec/markerb)
+Lovingly built on [github.com/sighmon/haml-rails](https://github.com/sighmon/haml-rails)
