@@ -1,18 +1,9 @@
-require "rails/generators/erb/mailer/mailer_generator"
-require "generators/haml/mailer/mailer_generator" if Mjml::TEMPLATE_ENGINE == :haml
+require 'generators/haml/mailer/mailer_generator'
 
 module Mjml
   module Generators
-    if Mjml::TEMPLATE_ENGINE == :haml
-      PARENT_GENERATOR = Haml::Generators::MailerGenerator
-      TEMPLATES_FOLDER = '../templates_haml'
-    else
-      PARENT_GENERATOR = Erb::Generators::MailerGenerator
-      TEMPLATES_FOLDER = '../templates'
-    end
-
-    class MailerGenerator < Mjml::Generators::PARENT_GENERATOR
-      source_root File.expand_path(Mjml::Generators::TEMPLATES_FOLDER, __FILE__)
+    class MailerGenerator < Haml::Generators::MailerGenerator
+      source_root File.expand_path('../templates', __FILE__)
 
       protected
 
