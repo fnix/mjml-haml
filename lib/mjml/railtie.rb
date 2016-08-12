@@ -3,7 +3,7 @@ module Mjml
     config.mjml = Mjml
     config.app_generators.mailer :template_engine => :mjml
 
-    initializer "mjml-rails.register_template_handler" do
+    initializer "mjml-haml.register_template_handler" do
       ActionView::Template.register_template_handler :mjml, Mjml::Handler.new
       Mime::Type.register "text/html", :mjml
     end

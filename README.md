@@ -1,6 +1,6 @@
 # MJML-Haml
 
-[![Build Status](https://api.travis-ci.org/fnix/mjml-haml.svg?branch=master)](http://travis-ci.org/fnix/mjml-haml) [![Gem Version](https://badge.fury.io/rb/mjml-rails.svg)](https://badge.fury.io/rb/mjml-rails)
+[![Build Status](https://api.travis-ci.org/fnix/mjml-haml.svg?branch=master)](http://travis-ci.org/fnix/mjml-haml) [![Gem Version](https://badge.fury.io/rb/mjml-haml.svg)](https://badge.fury.io/rb/mjml-haml)
 
 **MJML-Haml** allows you to render HTML e-mails from an [MJML](https://mjml.io) template.
 

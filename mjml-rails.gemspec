@@ -3,18 +3,15 @@ $:.push File.expand_path('../lib', __FILE__)
 require 'mjml/version'
 
 Gem::Specification.new do |s|
-  s.name        = 'mjml-rails'
+  s.name        = 'mjml-haml'
   s.version     = Mjml::VERSION.dup
   s.platform    = Gem::Platform::RUBY
-  s.summary     = 'MJML + ERb templates'
-  s.email       = 'sighmon@sighmon.com'
-  s.homepage    = 'https://github.com/sighmon/mjml-rails'
-  s.description = 'Render MJML + ERb template views in Rails'
-  s.authors     = ['Simon Loffler', 'Steven Pickles']
+  s.summary     = 'MJML + Haml templates'
+  s.email       = 'kadu@fnix.com.br'
+  s.homepage    = 'https://github.com/fnix/mjml-haml'
+  s.description = 'Render MJML + Haml template views in Rails'
+  s.authors     = ['Kadu Diógenes']
   s.license     = 'MIT'
-
-  s.cert_chain  = ['certs/sighmon.pem']
-  s.signing_key = File.expand_path("~/.ssh/gem-private_key.pem") if $0 =~ /gem\z/
 
   s.files         = Dir['MIT-LICENSE', 'README.md', 'lib/**/*']
   s.test_files    = Dir['test/**/*.rb']

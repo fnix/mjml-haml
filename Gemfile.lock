@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mjml-rails (2.2.0)
+    mjml-haml (2.2.0)
       haml-rails
 
 GEM
@@ -122,7 +122,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  mjml-rails!
+  mjml-haml!
   rails
 
 BUNDLED WITH
