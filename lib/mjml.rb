@@ -19,11 +19,11 @@ module Mjml
     # Check for a global install of MJML binary
     mjml_bin = 'mjml'
     return mjml_bin if check_version(mjml_bin)
-    
+
     # Check for a local install of MJML binary
     mjml_bin = File.join(`npm bin`.chomp, 'mjml')
     return mjml_bin if check_version(mjml_bin)
-    
+
     raise RuntimeError, "Couldn't find the MJML binary.. have you run $ npm install mjml?"
   end
 
@@ -36,7 +36,7 @@ module Mjml
 
     def call(template)
       compiled_source = haml_handler.call(template)
-      if template.formats.include?(:mjml)
+      if template.formats.include?(:html)
         "Mjml::Mjmltemplate.to_html(begin;#{compiled_source};end).html_safe"
       else
         compiled_source
