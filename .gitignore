@@ -1,3 +1,4 @@
 .bundle
 test/tmp
 00*
+Gemfile.lock
