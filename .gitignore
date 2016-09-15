@@ -2,3 +2,4 @@
 test/tmp
 00*
 Gemfile.lock
+pkg
